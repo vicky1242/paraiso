@@ -35,8 +35,8 @@ var e, t, i = [],
 						})
 					},
 					track: (r, n = {}) => {
-						const o = e.conversionLabels[r] ? .trim(),
-							a = e.eventNames ? .[r] ? .trim(),
+						const o = e.conversionLabels[r]?.trim(),
+							a = e.eventNames?.[r]?.trim(),
 							l = {
 								client_app: i,
 								event_category: "conversion_tracking",
@@ -877,7 +877,7 @@ var Tt = function(e, t) {
 				n.length > 0 ? null == (r = n[0].parentNode) || r.insertBefore(s, n[0]) : c.body.appendChild(s)
 			}
 		};
-		null != c && c.body ? a() : c ? .addEventListener("DOMContentLoaded", a)
+		null != c && c.body ? a() : c?.addEventListener("DOMContentLoaded", a)
 	};
 f.__PosthogExtensions__ = f.__PosthogExtensions__ || {}, f.__PosthogExtensions__.loadExternalDependency = (e, t, i) => {
 	if("remote-config" !== t) {
@@ -1009,7 +1009,7 @@ function Ui(e, t, i, s) {
 		capture: r = !1,
 		passive: n = !0
 	} = null != s ? s : {};
-	e ? .addEventListener(t, i, {
+	e?.addEventListener(t, i, {
 		capture: r,
 		passive: n
 	})
@@ -1196,13 +1196,13 @@ var Yi = class {
 			return null
 		}, M(e, t) {
 			try {
-				a ? .localStorage.setItem(e, JSON.stringify(t))
+				a?.localStorage.setItem(e, JSON.stringify(t))
 			} catch(a) {
 				ts.B(a)
 			}
 		}, F(e) {
 			try {
-				a ? .localStorage.removeItem(e)
+				a?.localStorage.removeItem(e)
 			} catch(a) {
 				ts.B(a)
 			}
@@ -1252,13 +1252,13 @@ var Yi = class {
 			return null
 		}, M(e, t) {
 			try {
-				a ? .sessionStorage.setItem(e, JSON.stringify(t))
+				a?.sessionStorage.setItem(e, JSON.stringify(t))
 			} catch(a) {
 				os.B(a)
 			}
 		}, F(e) {
 			try {
-				a ? .sessionStorage.removeItem(e)
+				a?.sessionStorage.removeItem(e)
 			} catch(a) {
 				os.B(a)
 			}
@@ -1651,7 +1651,7 @@ var As = ["cookie", "localstorage", "localstorage+cookie", "sessionstorage", "me
 							}
 						}, F(e, t) {
 							try {
-								a ? .localStorage.removeItem(e), Xi.F(e, t)
+								a?.localStorage.removeItem(e), Xi.F(e, t)
 							} catch(a) {
 								ts.B(a)
 							}
@@ -3009,13 +3009,13 @@ var Zr, Xr = "custom",
 					var s = j(e) ? {
 						[e]: t
 					} : e;
-					this.setPersonProperties(s), i ? .({})
+					this.setPersonProperties(s), i?.({})
 				},
 				set_once: (e, t, i) => {
 					var s = j(e) ? {
 						[e]: t
 					} : e;
-					this.setPersonProperties(void 0, s), i ? .({})
+					this.setPersonProperties(void 0, s), i?.({})
 				}
 			}, this.on("eventCaptured", e => Ot.info('send "' + (null == e ? void 0 : e.event) + '"', e))
 		}
@@ -3845,9 +3845,9 @@ var Zr, Xr = "custom",
 			}), this.Mr && (c.removeEventListener(Pi, this.Mr), this.Mr = null)) : this.Mr || (this.Mr = this.Wr.bind(this), Ui(c, Pi, this.Mr)))
 		}
 		debug(e) {
-			!1 === e ? (a ? .console.log("You've disabled debug mode."), this.set_config({
+			!1 === e ? (a?.console.log("You've disabled debug mode."), this.set_config({
 				debug: !1
-			})) : (a ? .console.log("You're now in debug mode. All calls to PostHog will be logged in your console.\nYou can disable this with `posthog.debug(false)`."), this.set_config({
+			})) : (a?.console.log("You're now in debug mode. All calls to PostHog will be logged in your console.\nYou can disable this with `posthog.debug(false)`."), this.set_config({
 				debug: !0
 			}))
 		}
@@ -5249,7 +5249,7 @@ var Ko = {
 			getElementSelectors(e) {
 				var t, i = [];
 				return null == (t = this.Es) || t.forEach(t => {
-					(null == c ? void 0 : c.querySelectorAll(t)) ? .forEach(s => {
+					(null == c ? void 0 : c.querySelectorAll(t))?.forEach(s => {
 						e === s && i.push(t)
 					})
 				}), i
@@ -6333,7 +6333,7 @@ var Ko = {
 								isLoaded: !1,
 								error: n
 							};
-							return e([], o), void i ? .({
+							return e([], o), void i?.({
 								surveys: [],
 								context: o
 							})
@@ -6354,7 +6354,7 @@ var Ko = {
 						var c = {
 							isLoaded: !0
 						};
-						e(l, c), i ? .({
+						e(l, c), i?.({
 							surveys: l,
 							context: c
 						})
@@ -6639,7 +6639,7 @@ var Ko = {
 			$n(t, i, s) {
 				this._is_bot() ? e.qn(zo) : "control" !== i ? s.forEach(s => {
 					var r;
-					s.selector && (e.qn("applying transform of variant " + i + " for experiment " + t + " ", s), (null == (r = document) ? void 0 : r.querySelectorAll(s.selector)) ? .forEach(e => {
+					s.selector && (e.qn("applying transform of variant " + i + " for experiment " + t + " ", s), (null == (r = document) ? void 0 : r.querySelectorAll(s.selector))?.forEach(e => {
 						var t = e;
 						s.html && (t.innerHTML = s.html), s.css && t.setAttribute("style", s.css)
 					}))
@@ -6960,10 +6960,10 @@ var la, ua = (la = hn[mn] = new kn, function() {
 		if(!ca) return;
 		const i = e && !e.secondFactor ? e.id : null;
 		i ? (ua.identify(i, ((e, t) => ({
-			email: t ? .email || e ? .email,
-			name: t ? .name || e ? .name,
-			role: t ? .role || e ? .role,
-			secondFactor: t ? .secondFactor ? ? !!e ? .secondFactor
+			email: t?.email || e?.email,
+			name: t?.name || e?.name,
+			role: t?.role || e?.role,
+			secondFactor: t?.secondFactor ? ? !!e?.secondFactor
 		}))(e, t)), ha = i) : ha && (ua.reset(), ha = null)
 	},
 	ga = {},
@@ -6972,7 +6972,7 @@ var la, ua = (la = hn[mn] = new kn, function() {
 		if(t && t.length > 0) {
 			const e = document.getElementsByTagName("link"),
 				n = document.querySelector("meta[property=csp-nonce]"),
-				o = n ? .nonce || n ? .getAttribute("nonce");
+				o = n?.nonce || n?.getAttribute("nonce");
 			r = t.map(t => {
 				if((t = function(e) {
 						return "/" + e
