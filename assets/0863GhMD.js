@@ -1,0 +1,1 @@
+var a="/dispatch",p="/api/dispatch";export{p as n,a as t};
