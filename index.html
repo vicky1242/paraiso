@@ -8,133 +8,8 @@
   <meta property="og:description" content="PARAISO Roleplay is the most advanced Grand Theft Auto V roleplay server with Voice Chat.">
   <title>PARAISO Roleplay</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Roboto:wght@400;500&display=swap">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --color-primary: #00aaff;
-      --color-primary-glow: rgba(0,170,255,0.4);
-      --color-bg: #0a0a0f;
-      --color-text: #ffffff;
-      --color-text-muted: rgba(255,255,255,0.7);
-      --color-border: rgba(0,170,255,0.3);
-      --header-height: 70px;
-    }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
-    body { font-family: 'Exo 2', sans-serif; background: var(--color-bg); color: var(--color-text); overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
-
-    /* HEADER */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      height: 120px;
-      display: flex; align-items: center; padding: 0 40px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
-      backdrop-filter: blur(4px);
-    }
-    .logo-img { height: 120px; object-fit: contain; margin-right: auto; }
-    nav { display: flex; align-items: center; gap: 32px;     width: 100%;    justify-content: flex-end; }
-    nav a { font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--color-text-muted); transition: color 0.2s; }
-    nav a:hover { color: #fff; }
-
-    .btn { display: inline-block; padding: 10px 28px; border-radius: 4px; font-family: 'Exo 2', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: all 0.25s; border: none; }
-    .btn-primary { background: var(--color-primary); color: #000; box-shadow: 0 0 18px var(--color-primary-glow); }
-    .btn-primary:hover { background: #33bbff; box-shadow: 0 0 30px var(--color-primary-glow); transform: translateY(-1px); }
-    .btn-outline { background: transparent; color: var(--color-primary); border: 1.5px solid var(--color-primary); }
-    .btn-outline:hover { background: rgba(0,170,255,0.1); }
-
-    /* HERO */
-    .section-hero {
-      min-height: 100vh;
-      background-image: url('./images/desktop/section/s1-background.png');
-      background-size: cover; background-position: center;
-      display: flex; align-items: center;
-      padding: var(--header-height) 40px 60px;
-      position: relative;
-    }
-    .section-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.75) 40%, rgba(0,10,30,0.5)); }
-    .hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 48px; }
-    .hero-content { flex: 1; }
-    .hero-content h1 { font-size: clamp(32px, 5vw, 62px); font-weight: 900; line-height: 1.1; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-    .hero-content h1 .name { color: var(--color-primary); text-shadow: 0 0 20px var(--color-primary-glow); }
-    .hero-content p { font-size: 15px; line-height: 1.7; color: var(--color-text-muted); max-width: 520px; margin-bottom: 32px; }
-
-    .server-info { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap; }
-    .status-badge { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
-    .status-dot { width: 10px; height: 10px; border-radius: 50%; background: #00ff88; box-shadow: 0 0 8px #00ff88; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
-    .status-label { color: #00ff88; }
-    .divider { width: 1px; height: 28px; background: var(--color-border); }
-    .server-ip { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-muted); }
-    .server-ip span { color: #fff; font-weight: 600; font-family: monospace; font-size: 14px; }
-
-    /* DISCORD */
-    .discord-widget { background: rgba(88,101,242,0.15); border: 1px solid rgba(88,101,242,0.4); border-radius: 8px; padding: 24px; width: 280px; flex-shrink: 0; }
-    .discord-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-    .discord-icon { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
-    .discord-title span { display: block; font-size: 11px; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 1px; }
-    .discord-title strong { font-size: 13px; font-weight: 700; }
-    .discord-widget p { font-size: 13px; color: var(--color-text-muted); margin-bottom: 16px; line-height: 1.5; }
-    .discord-stats { display: flex; gap: 24px; margin-bottom: 16px; }
-    .discord-stats div { text-align: center; }
-    .discord-stats strong { display: block; font-size: 20px; color: #fff; }
-    .discord-stats span { font-size: 11px; color: var(--color-text-muted); text-transform: uppercase; }
-    .discord-join { display: block; text-align: center; padding: 10px; background: #5865F2; border-radius: 4px; font-weight: 700; font-size: 13px; transition: background 0.2s, transform 0.2s; }
-    .discord-join:hover { background: #4752c4; transform: translateY(-1px); }
-
-    /* VIDEO */
-    .section-video { background-image: url('./images/desktop/section/s2-background.png'); background-size: cover; background-position: center; padding: 80px 40px; position: relative; }
-    .section-video::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-    .section-video .inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
-    .video-wrapper { border-radius: 8px; overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 16/9; }
-    .video-wrapper iframe { width: 100%; height: 100%; display: block; }
-
-    /* STEPS */
-    .section-steps { background: #000; padding: 80px 40px; }
-    .section-steps .inner { max-width: 1100px; margin: 0 auto; }
-    .section-title { text-align: center; font-size: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 56px; color: var(--color-primary); }
-    .steps { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-    .step-card { background: rgba(255,255,255,0.04); border: 1px solid var(--color-border); border-radius: 8px; padding: 36px 28px; flex: 1; min-width: 220px; max-width: 320px; text-align: center; transition: border-color 0.3s, transform 0.3s; }
-    .step-card:hover { border-color: var(--color-primary); transform: translateY(-4px); }
-    .step-num { font-size: 42px; font-weight: 900; color: var(--color-primary); opacity: 0.4; margin-bottom: 12px; }
-    .step-card h3 { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-    .step-card p { font-size: 13px; color: var(--color-text-muted); margin-bottom: 20px; }
-
-    /* SOCIAL CARDS */
-    .section-social { background: #000; padding: 0 40px 80px; }
-    .social-cards { max-width: 1100px; margin: 0 auto; display: flex; gap: 16px; flex-wrap: wrap; }
-    .social-card { flex: 1; min-width: 220px; height: 200px; border-radius: 8px; overflow: hidden; position: relative; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; transition: transform 0.3s; }
-    .social-card:hover { transform: scale(1.02); }
-    .social-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); }
-    .social-card .card-logo { position: relative; z-index: 1; height: 36px; object-fit: contain; }
-
-    /* FOOTER */
-    footer { background: rgba(0,0,0,0.95); border-top: 1px solid var(--color-border); padding: 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-    .footer-name { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
-    .footer-name .blue, .footer-copy .blue { color: var(--color-primary); }
-    .footer-copy { font-size: 13px; color: var(--color-text-muted); }
-    .social-icons { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
-    .social-icon { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); transition: all 0.2s; }
-    .social-icon:hover { border-color: var(--color-primary); color: var(--color-primary); background: rgba(0,170,255,0.1); }
-    .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
-
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; margin-left: 16px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
-
-    @media (max-width: 768px) {
-      header { padding: 0 20px; }
-      .hamburger { display: flex; }
-      nav { position: fixed; top: var(--header-height); left: 0; right: 0; background: rgba(10,10,20,0.97); flex-direction: column; padding: 24px; gap: 20px; transform: translateY(-110%); transition: transform 0.3s; border-bottom: 1px solid var(--color-border); }
-      nav.open { transform: translateY(0); }
-      .hero-inner { flex-direction: column; gap: 32px; }
-      .discord-widget { width: 100%; max-width: 340px; }
-      .section-hero { padding-top: calc(var(--header-height) + 20px); }
-      .social-card { min-width: 100%; height: 160px; }
-      .steps { flex-direction: column; align-items: center; }
-      footer { padding: 32px 20px; }
-    }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Roboto+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -145,34 +20,72 @@
     <a href="#" class="btn btn-outline" style="padding:8px 20px">Login</a>
     <a href="#" class="btn btn-primary" style="padding:8px 20px">Register</a>
   </nav>
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+  <div class="hamburger" id="hamburger">
     <span></span><span></span><span></span>
   </div>
 </header>
 
 <section class="section-hero">
+
+  <!-- decorative geometric shapes, matches reference's right-side motif -->
+  <div class="hero-shapes" aria-hidden="true">
+    <div class="hero-shape shape-triangle shape-1"></div>
+    <div class="hero-shape shape-square shape-2"></div>
+    <div class="hero-shape shape-circle shape-3"></div>
+    <div class="hero-shape shape-diamond shape-4"></div>
+    <div class="hero-shape shape-square shape-5"></div>
+    <div class="hero-shape shape-circle shape-6"></div>
+    <div class="hero-shape shape-triangle shape-7"></div>
+  </div>
+
   <div class="hero-inner">
     <div class="hero-content">
-      <h1><span class="name">Grand Theft Auto V</span><br>Roleplay Server</h1>
+      <h1><span class="name">Grand Theft Auto V</span><span class="accent-line">Roleplay Server</span></h1>
       <p>Join our community and come play on our server for an amazing roleplay experience! Our server offers a built-in voice chat system, advanced scripts and features, and an active, friendly and dedicated server administration.</p>
+
       <div class="server-info">
-        <div class="status-badge"><div class="status-dot"></div><span class="status-label">Online</span></div>
-        <div class="divider"></div>
-        <div class="server-ip">Server IP: <span>play.eclipse-rp.net:22005</span></div>
+        <div class="info-cell">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Status</span>
+            <span class="info-value online">Online</span>
+          </div>
+        </div>
+        <div class="info-cell">
+          <div class="info-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.93 9h-2.95c-.13-2.21-.66-4.2-1.55-5.72A8.018 8.018 0 0 1 19.93 11zM12 4.06c1.1 1.43 1.9 3.7 2.07 6.94H9.93C10.1 7.76 10.9 5.5 12 4.06zM4.07 13h2.95c.13 2.21.66 4.2 1.55 5.72A8.018 8.018 0 0 1 4.07 13zm2.95-2H4.07a8.018 8.018 0 0 1 4.5-5.72C7.68 6.8 7.15 8.79 7.02 11zm2.91 2h4.14c-.17 3.24-.97 5.51-2.07 6.94-1.1-1.43-1.9-3.7-2.07-6.94zm5.15 5.72c.89-1.52 1.42-3.51 1.55-5.72h2.95a8.018 8.018 0 0 1-4.5 5.72z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="info-label">Server IP</span>
+            <span class="server-ip-value">play.eclipse-rp.net:22005</span>
+          </div>
+        </div>
       </div>
-      <a href="https://rage.mp" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:15px; padding:14px 36px;">⬇ Download &amp; Play</a>
+
+      <a href="https://rage.mp" target="_blank" rel="noopener" class="btn btn-primary hero-cta">⬇ Download &amp; Play</a>
     </div>
-    <div class="discord-widget">
-      <div class="discord-header">
-        <img class="discord-icon" src="https://cdn.discordapp.com/icons/229240178441584645/9b8378076b88c0b6c29996cb9ee08d06.png?size=128" alt="Discord">
-        <div class="discord-title"><span>Official Discord</span><strong>PARAISO ROLEPLAY</strong></div>
+
+    <div class="hero-visual">
+      <!-- Drop your character artwork here, e.g.:
+           <img class="character-art" src="./images/desktop/section/hero-characters.png" alt=""> -->
+      <div class="character-placeholder">
+        Character artwork goes here<br>(./images/desktop/section/hero-characters.png)
       </div>
-      <p>Join the community, read updates, and get support before your first connection.</p>
-      <div class="discord-stats">
-        <div><strong>61,581</strong><span>Members</span></div>
-        <div><strong>5,837</strong><span>Online</span></div>
+
+      <div class="discord-widget">
+        <div class="discord-header">
+          <img class="discord-icon" src="https://cdn.discordapp.com/icons/229240178441584645/9b8378076b88c0b6c29996cb9ee08d06.png?size=128" alt="Discord">
+          <div class="discord-title"><span>Official Discord</span><strong>PARAISO ROLEPLAY</strong></div>
+        </div>
+        <p>Join the community, read updates, and get support before your first connection.</p>
+        <div class="discord-stats">
+          <div><strong>61,581</strong><span>Members</span></div>
+          <div><strong>5,837</strong><span>Online</span></div>
+        </div>
+        <a class="discord-join" href="https://discord.gg/y2gxAjg" target="_blank" rel="noopener">Join Discord</a>
       </div>
-      <a class="discord-join" href="https://discord.gg/y2gxAjg" target="_blank" rel="noopener">Join Discord</a>
     </div>
   </div>
 </section>
@@ -234,13 +147,6 @@
   </div>
 </footer>
 
-<script>
-  function toggleNav() { document.getElementById('nav').classList.toggle('open'); }
-  document.addEventListener('click', function(e) {
-    const nav = document.getElementById('nav');
-    const h = document.getElementById('hamburger');
-    if (!nav.contains(e.target) && !h.contains(e.target)) nav.classList.remove('open');
-  });
-</script>
+<script src="./script.js"></script>
 </body>
 </html>
