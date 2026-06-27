@@ -442,8 +442,11 @@ footer { background: rgba(0, 0, 0, 0.95); border-top: 1px solid var(--color-bord
 
 @media (max-width: 768px) {
   header { padding: 0 20px; }
-  .hamburger { display: flex; }
+  .hamburger { display: flex;
+    margin-left: auto!important;
+   }
   nav {
+    display: none;
     position: fixed;
     top: var(--header-height);
     left: 0; right: 0;
