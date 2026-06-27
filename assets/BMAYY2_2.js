@@ -1,1 +1,0 @@
-import{a as r}from"./DEaAK_95.js";import{S as t}from"./DSY_X0J3.js";var s=r(t());function e(r,t){const e=(0,s.useRef)(!1);(0,s.useEffect)(()=>{e.current?r():e.current=!0},t)}export{e as t};
