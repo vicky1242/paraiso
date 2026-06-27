@@ -67,21 +67,44 @@
       <a href="https://rage.mp" target="_blank" rel="noopener" class="btn btn-primary hero-cta">⬇ Download &amp; Play</a>
     </div>
 
-    <div class="hero-visual">
-      <div class="discord-widget">
+<div class="hero-visual">
+    <div class="discord-widget">
+
         <div class="discord-header">
-          <img class="discord-icon" src="./images/logo.png" alt="Discord">
-          <div class="discord-title"><span>Official Discord</span><strong>PARAISO ROLEPLAY</strong></div>
+            <img class="discord-icon" src="./images/logo.png" alt="Discord">
+
+            <div class="discord-title">
+                <span>Official Discord</span>
+                <strong>PARAISO ROLEPLAY</strong>
+            </div>
         </div>
-        <p>Join the community, read updates, and get support before your first connection.</p>
+
+        <p>
+            Join the community, read updates, and get support before your first connection.
+        </p>
+
         <div class="discord-stats">
-          <div><strong>61,581</strong><span>Members</span></div>
-          <div><strong>5,837</strong><span>Online</span></div>
+            <div>
+                <strong id="memberCount">Loading...</strong>
+                <span>MEMBERS</span>
+            </div>
+
+            <div>
+                <strong id="onlineCount">Loading...</strong>
+                <span>ONLINE</span>
+            </div>
         </div>
-        <a class="discord-join" href="https://discord.com/invite/7mKN9ypWsC" target="_blank" rel="noopener">Join Discord</a>
-      </div>
-      <img class="character-art" src="./assets/chrc.png" alt="Paraiso Roleplay characters">
+
+        <a class="discord-join"
+           href="https://discord.com/invite/7mKN9ypWsC"
+           target="_blank">
+            Join Discord
+        </a>
+
     </div>
+
+    <img class="character-art" src="./assets/chrc.png" alt="Characters">
+</div>
   </div>
 </section>
 
@@ -156,5 +179,39 @@
 </footer>
 
 <script src="./script.js"></script>
+<script>
+const guildId = "1519328496898408519";
+
+async function loadDiscordStats() {
+    try {
+
+        const response = await fetch(
+            `https://discord.com/api/guilds/${guildId}/widget.json`
+        );
+
+        const data = await response.json();
+
+        // Online Members
+        document.getElementById("onlineCount").textContent =
+            data.presence_count.toLocaleString();
+
+        // Total Members
+        document.getElementById("memberCount").textContent =
+            data.members.length.toLocaleString();
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("memberCount").textContent = "--";
+        document.getElementById("onlineCount").textContent = "--";
+    }
+}
+
+loadDiscordStats();
+
+// Auto refresh every 60 seconds
+setInterval(loadDiscordStats, 60000);
+</script>
 </body>
 </html>
