@@ -379,7 +379,16 @@ nav a:hover { color: #fff; }
 .social-card { flex: 1; min-width: 220px; height: 200px; border-radius: 8px; overflow: hidden; position: relative; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; transition: transform 0.3s; }
 .social-card:hover { transform: scale(1.02); }
 .social-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent); }
-.social-card .card-logo { position: relative; z-index: 1; height: 36px; object-fit: contain; }
+.social-card .card-logo { z-index: 1;    height: 36px;    object-fit: contain;    position: absolute;
+    top: 53px;
+    left: 89px; }
+    .character {
+          width: 40%;
+    right: 0;
+    transform: none;
+    position: absolute;
+    bottom: 0;
+    }
 
 /* ===================================================================
    FOOTER
