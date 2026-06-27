@@ -41,7 +41,7 @@ header {
   backdrop-filter: blur(4px);
 }
 
-.logo-img { height: 64px; object-fit: contain; margin-right: auto; }
+.logo-img { height: 150px; object-fit: contain; margin-right: auto; }
 
 nav {
   display: flex;
